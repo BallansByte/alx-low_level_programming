@@ -5,17 +5,14 @@
 */
 int main(void)
 {
-char hex_digit;
+	int num;
+	char letter;
 
-	for (hex_digit = 0; hex_digit <= 9; hex_digit++)
-	{
-		putchar(hex_digit);
-	}
+	for (num = 0; num < 10; num++)
+		putchar((num % 10) + '0');
 
-	for (hex_digit = 'a'; hex_digit <= 'f'; hex_digit++)
-	{
-		putchar(hex_digit);
-	}
+	for (letter = 'a'; letter <= 'f'; letter++)
+		putchar(letter);
 
 	putchar('\n');
 	return (0);
