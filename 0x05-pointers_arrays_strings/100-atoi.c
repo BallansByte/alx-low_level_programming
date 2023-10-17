@@ -12,7 +12,6 @@ int _atoi(char *s)
 	int result = 0;
 	int i = 0;
 
-	/* Check for a sign (+/-) before the number */
 	while (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')
@@ -20,13 +19,14 @@ int _atoi(char *s)
 		i++;
 	}
 
-	/* Convert the digits to an integer */
 	while (s[i] >= '0' && s[i] <= '9')
 	{
+		if (result > (INT_MAX - (s[i] - '0')) / 10)
+		return ((sign == 1) ? INT_MAX : INT_MIN);
+
 		result = result * 10 + (s[i] - '0');
 		i++;
 	}
 
-	/* Apply the sign to the result */
-	return sign * result;
+	return (sign * result);
 }
