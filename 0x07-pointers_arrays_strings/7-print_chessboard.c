@@ -1,22 +1,27 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdio.h>
 
 /**
- * print_chessboard - Chessboard printer.
- * @a: The array 2d.
+ * print_chessboard - Prints a chessboard.
+ * @a: The 2D array representing the chessboard.
  */
 void print_chessboard(char (*a)[8])
 {
-	int row, col;
+	int row = 0;
+	int col;
 
-	for (row = 0; row < 8; row++)
+	while (row < 8)
 	{
-		for (col = 0; col < 8; col++)
+		col = 0;
+		while (col < 8)
 		{
 			putchar(a[row][col]);
 			if (col < 7)
 				putchar(' ');
+			col++;
 		}
 		putchar('\n');
+		row++;
 	}
 }
