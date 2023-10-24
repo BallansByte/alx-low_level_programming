@@ -8,9 +8,11 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
+B
 	unsigned int count = 0;
 	int found;
 
+B
 	if (s == NULL || accept == NULL)
 		return (0);
 
