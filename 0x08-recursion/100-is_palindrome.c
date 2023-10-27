@@ -1,59 +1,46 @@
 #include "main.h"
-#include <unistd.h>
+
+int check_pal(char *s, int i, int len);
+int _strlen_recursion(char *s);
 
 /**
- * _putchar - writes a character to the standard output (stdout)
- * @c: The character to print
- *
- * Return: On success 1, on error -1.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
- * _strlen - Calculates the length of a string.
- * @s: The string.
- * Return: The length of the string.
- */
-int _strlen(char *s)
-{
-	if (*s == '\0')
-	return (0);
-	return (1 + _strlen(s + 1));
-}
-
-/**
- * is_palindrome_recursive - Helper function to check string.
- * @s: The string to check.
- * @start: The start index.
- * @end: The end index.
- *
- * Return: 1 if the string is a palindrome, 0 otherwise.
- */
-int is_palindrome_recursive(char *s, int start, int end)
-{
-	if (start >= end)
-	return (1);
-
-	if (s[start] != s[end])
-	return (0);
-
-	return (is_palindrome_recursive(s, start + 1, end - 1));
-}
-
-/**
- * is_palindrome - Checks if a string is a palindrome.
- * @s: The string to check.
- *
- * Return: 1 if the string is a palindrome, 0 otherwise.
+ * is_palindrome - checks if a string is a palindrome
+ * @s: string to reverse
+ * Return: 1 if it is, 0 it's not
  */
 int is_palindrome(char *s)
 {
-	int len = _strlen(s);
-
-	if (len <= 1)
+	if (*s == 0)
 	return (1);
+	return (check_pal(s, 0, _strlen_recursion(s)));
+}
 
-	return (is_palindrome_recursive(s, 0, len - 1));
+/**
+ * _strlen_recursion - returns the length of a string
+ * @s: string to calculate the length of
+ *
+ * Return: length of the string
+ */
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+	return (0);
+	return (1 + _strlen_recursion(s + 1));
+}
+
+/**
+ * check_pal - checks the characters recursively for palindrome
+ * @s: string to check
+ * @i: iterator
+ * @len: length of the string
+ *
+ * Return: 1 if palindrome, 0 if no
+ */
+int check_pal(char *s, int i, int len)
+{
+	if (*(s + i) != *(s + len - 1))
+	return (0);
+	if (i >= len)
+	return (1);
+	return (check_pal(s, i + 1, len - 1));
 }
