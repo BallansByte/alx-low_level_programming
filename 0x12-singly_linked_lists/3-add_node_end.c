@@ -4,7 +4,7 @@
 
 /**
  * add_node_end - new node
- * @head: pointer 
+ * @head:pointer 
  * @str: string
  *
  * Return: Success.
