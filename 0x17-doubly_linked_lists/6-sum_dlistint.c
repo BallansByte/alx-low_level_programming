@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * sum_dlistint - sums up all the data and returns it(n), this is 
+ * sum_dlistint - sums up all the data and returns it(n), this is
  * of a doubly linked list
  *
- * @head: list head 
+ * @head: list head
  * Return: Always Success
  */
 int sum_dlistint(dlistint_t *head)
